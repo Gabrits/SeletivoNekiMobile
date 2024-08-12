@@ -24,5 +24,22 @@ export const styles = StyleSheet.create({
         top:43,
         right:20
       },
+
+      textoCadastro:{
+        position:"absolute",
+        top:45,
+        left:90,
+        fontWeight:"bold"
+      },
+
+      texto:{
+      },
+
+      cadastro:{
+        color:"white",
+        fontWeight:"bold",
+        fontFamily:"montserrat-regular",
+        fontSize: 18
+      }
     
 })

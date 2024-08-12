@@ -56,10 +56,8 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
   },
   cardsContainer: {
-    justifyContent:"center",
-    width: '100%',
     alignContent:"center",
-    marginLeft:"14%",
+    paddingHorizontal: 16,
     marginBottom:100
 
   },

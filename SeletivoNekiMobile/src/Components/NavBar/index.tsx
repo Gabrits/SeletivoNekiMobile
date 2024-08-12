@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, Alert } from 'react-native';
+import { View, Image, TouchableOpacity, Alert, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './style';
+import Cadastro from '../../Pages/Cadastro';
 
 function Navbar() {
   const navigation = useNavigation();
@@ -17,6 +18,7 @@ function Navbar() {
       Alert.alert('Erro', 'Não foi possível desconectar. Tente novamente.');
       console.error('Erro ao realizar logout:', error);
     }
+
   };
 
   return (
@@ -25,6 +27,9 @@ function Navbar() {
         source={require('../../Assets/logo.png')}
         style={styles.logo}
       />
+      <TouchableOpacity style={styles.textoCadastro}>
+            <Text style={styles.cadastro} onPress={() => navigation.navigate('Cadastro')}>Cadastro</Text>
+          </TouchableOpacity>
       <TouchableOpacity onPress={handleLogout}>
         <Icon 
           name="sign-out"

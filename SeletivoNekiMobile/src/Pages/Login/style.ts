@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     },
     card: {
       width: 350,
-      height: 430,
+      height: 400,
       backgroundColor: "#181818",
       borderRadius: 15,
       alignItems: "center",
@@ -45,20 +45,5 @@ export const styles = StyleSheet.create({
       position: 'absolute',
       top: 70,
       left: 35,
-    },
-    textoCadastro: {
-        flexDirection:"row",
-        gap:5,
-        color:"white",
-        marginTop:6,
-    },
-    texto:{
-        color:"#7D7D7D",
-        fontSize:16
-    },
-    cadastro:{
-        color:"#19536E",
-        fontSize:16,
-        fontWeight:"bold"
     }
   });

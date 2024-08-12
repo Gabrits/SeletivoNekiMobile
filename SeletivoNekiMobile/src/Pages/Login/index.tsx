@@ -12,7 +12,7 @@ interface LoginProps {
   navigation: any;
 }
 
-function Login({ navigation }: LoginProps) {
+const Login: React.FC<LoginProps> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [isChecked, setIsChecked] = useState(false);
@@ -63,6 +63,7 @@ function Login({ navigation }: LoginProps) {
         await AsyncStorage.removeItem('password');
       }
 
+      // Navegar para a tela "Home"
       navigation.navigate('Home');
       Toast.show({
         type: 'success',
@@ -79,6 +80,23 @@ function Login({ navigation }: LoginProps) {
       });
     }
   };
+
+  // Função de teste para AsyncStorage
+  const testAsyncStorage = async () => {
+    try {
+      await AsyncStorage.setItem('testKey', 'testValue123');
+      const value = await AsyncStorage.getItem('testKey');
+      console.log('Valor do AsyncStorage:', value); // Deve ser 'testValue123'
+      await AsyncStorage.removeItem('testKey');
+    } catch (error) {
+      console.error('Erro ao manipular AsyncStorage:', error);
+    }
+  };
+
+  // Execute o teste de AsyncStorage ao montar o componente
+  React.useEffect(() => {
+    testAsyncStorage();
+  }, []);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -108,15 +126,11 @@ function Login({ navigation }: LoginProps) {
             </View>
             <ButtonComponent title='Entrar' handleOnPress={handleLogin} />
           </View>
-          <View style={styles.textoCadastro}>
-            <Text style={styles.texto}>Não possui uma conta?</Text>
-            <Text style={styles.cadastro} onPress={() => navigation.navigate('Cadastro')}>Cadastre-se</Text>
-          </View>
         </View>
         <Toast />
       </View>
     </TouchableWithoutFeedback>
   );
-}
+};
 
 export default Login;
