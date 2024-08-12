@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import { TextInput, View, TouchableOpacity } from 'react-native';
+import { TextInput, View, TouchableOpacity, TextInputProps } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { styles } from './style';
 
-interface PropsComponent {
+interface PropsComponent extends TextInputProps {
   placeholder: string;
   onChangeValue?: (value: string) => void;
   value?: string;
 }
 
-export function TextInputComponentSenha({ placeholder, onChangeValue, value }: PropsComponent) {
+export function TextInputComponentSenha({
+  placeholder,
+  onChangeValue,
+  value,
+  ...rest
+}: PropsComponent) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
-    setIsPasswordVisible(!isPasswordVisible);
+    setIsPasswordVisible(prevState => !prevState);
   };
 
   return (
@@ -25,6 +30,7 @@ export function TextInputComponentSenha({ placeholder, onChangeValue, value }: P
         secureTextEntry={!isPasswordVisible}
         onChangeText={onChangeValue}
         value={value}
+        {...rest}
       />
       <TouchableOpacity
         onPress={togglePasswordVisibility}

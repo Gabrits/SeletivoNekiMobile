@@ -7,7 +7,7 @@ interface ButtonComponentProps {
   handleOnPress?: () => void;
 }
 
-export function ButtonComponent({ title, handleOnPress }: ButtonComponentProps) {
+export function ButtonComponentAddHabilidade({ title, handleOnPress }: ButtonComponentProps) {
   return (
     <TouchableOpacity style={styles.buttonstyles} onPress={handleOnPress}>
       <Text style={styles.textButton}>{title}</Text>
